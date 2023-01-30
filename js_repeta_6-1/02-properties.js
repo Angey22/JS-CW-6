@@ -1,3 +1,5 @@
+// Видео - 0:20:00
+
 const magicBtn = document.querySelector('.js-magic-btn');
 
 /*
