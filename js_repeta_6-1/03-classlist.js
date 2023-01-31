@@ -1,3 +1,5 @@
+// Видео - 0:41:30
+
 const magicBtn = document.querySelector('.js-magic-btn');
 /*
  * Интерфейс classList
