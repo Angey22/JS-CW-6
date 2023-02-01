@@ -3,6 +3,8 @@
  * http://fecore.net.ua/books/m5ph3r-javascript/module-07/dom-traversal.html
  */
 
+// Видео - 0:58:20
+
 const navEl = document.querySelector('.site-nav');
 
 // const firstNavItemEl = navEl.querySelector('.site-nav__item');
