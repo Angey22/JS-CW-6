@@ -90,8 +90,15 @@ imageEl.setAttribute('width', 320);
 console.log(imageEl);
 console.log('***********************************************');
 
-// Вставляем созданный тег-изображение в структуру "body" существующего HTML документа, с помощью метода "appendChild(elem)"
-document.body.appendChild(imageEl);
+// Вставляем созданный тег-изображение и тег-заголовок в структуру существующего HTML документа, с помощью метода "appendChild(elem)", используя для вставки - переменную-ссылку на тег <div> с CSS классом - "hero".
+const heroEL = document.querySelector('.hero');
+
+// 1-й способ вставки нескольких элементов
+// heroEL.appendChild(titleEl);
+// heroEL.appendChild(imageEl);
+
+// 2-й способ вставки нескольких элементов
+heroEL.append(titleEl, imageEl);
 
 
 
