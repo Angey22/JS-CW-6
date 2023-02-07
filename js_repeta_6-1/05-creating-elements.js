@@ -74,7 +74,7 @@ const list = document.querySelector('ul');
 const imageEl = document.createElement('img');
 
 // Задаем созданному тегу-изображению атрибут "src"
-imageEl.src = './img/valais-3562988_1280.jpg';
+imageEl.src = '../img/valais-3562988_1280.jpg';
 
 // Задаем созданному тегу-изображению атрибут "alt"
 imageEl.alt = 'valais-alpine-mountains-glacier';
