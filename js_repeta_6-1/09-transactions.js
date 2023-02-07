@@ -1,3 +1,5 @@
+// Видео - 2:21:10
+
 import transactionHistory from './data/transactions.js';
 
 const makeTransactionTableRowMarkup = transaction => {
@@ -17,6 +19,8 @@ const makeTransactionTableRowMarkup = transaction => {
 };
 
 console.log(transactionHistory);
+
+
 const tableEl = document.querySelector('.js-transaction-table');
 const transactionTableRowsMarkup = transactionHistory
   .map(makeTransactionTableRowMarkup)
