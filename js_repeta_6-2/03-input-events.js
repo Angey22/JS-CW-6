@@ -1,39 +1,122 @@
+// Видео - 0:41:10...
 /*
- * Паттерн «Объект ссылок»
- *
- * События
- * - focus и blur
+ * Паттерн «Объект-ссылок»
+ */
+// Паттерн «Объект-ссылок» - это способ группировки всех существующих в скрипте ссылок на теги HTML документа, в один объект. Благодаря чему, вместо разрозненных по скрипту ссылок-переменных (которые "привязывают" теги к коду скрипта), получается один объект с набором свойств, значения которых и являются ссылками на необходимые теги HTML документа.
+
+
+//! У паттерна «Объект-ссылок» есть как приимущество, так и недостаток. Он не является обязательным правилом, но в то же время - позволяет структурировать код и повысить его "чистоту" и "читабельность".
+//! Приимущество - легче читается код и явно в коде становятся видимыми все ссылки на теги из-за того, что все они выполняются через обращение к соответствующиму объекту (например, по виду "refs.iput", будет сразу понятно что это ссылка, так-как сам объект "refs" и является - «объектом-ссылок»);
+//! Недостаток - при обращении к нужной ссылке нужно будет постоянно указывать имя объекта и нужное его свойство (например, "refs.iput"), вместо того, чтобы просто писать имя соответствующей переменной из глобальной видимости скрипта (например, "input").
+
+
+// Пример использования обычного способа создания набора переменных-ссылок и «объекта-ссылок», согласно вышеописанного способа:
+
+// - обычный способ создания набора переменных-ссылок
+// Создаем отдельную переменную-ссылку на тег-input (type="text")
+const input = document.querySelector('js-input');
+console.log('"input" =>', input);
+console.log('-----------------------------------------------');
+// Создаем отдельную переменную-ссылку на тег-input (type="checkbox")
+const licenseCheckbox = document.querySelector('.js-license');
+console.log('"licenseCheckbox" =>', licenseCheckbox);
+console.log('-----------------------------------------------');
+// Создаем отдельную переменную-ссылку на тег-button
+const btn = document.querySelector('.js-button');
+console.log('"btn" =>', btn);
+console.log('-----------------------------------------------');
+// Создаем отдельную переменную-ссылку на тег-span, находящийся внутри тега-button
+const nameLabel = document.querySelector('.js-button > span');
+console.log('"nameLabel" =>', nameLabel)
+console.log('===============================================');
+
+// - «объект-ссылок»
+const refs = {
+  // Свойство-ссылка на тег-input (type="text")
+  input: document.querySelector('.js-input'),
+  // Свойство-ссылка на тег-input (type="checkbox")
+  licenseCheckbox: document.querySelector('.js-license'),
+  // Свойство-ссылка на тег-button
+  btn: document.querySelector('.js-button'),
+  // Свойство-ссылка на тег-span, находящийся внутри тега-button
+  nameLabel: document.querySelector('.js-button > span'),
+};
+console.log('"refs" =>', refs);
+console.log('***********************************************');
+
+
+
+/*
+ * События:
+ * - 'focus' и 'blur';
  * - input и change
  * - Чекбоксы и свойство checked
  */
 
-const refs = {
-  input: document.querySelector('.js-input'),
-  nameLabel: document.querySelector('.js-button > span'),
-  licenseCheckbox: document.querySelector('.js-license'),
-  btn: document.querySelector('.js-button'),
-};
+// Остановился на - 0:44:10
 
-// refs.input.addEventListener('focus', onInputFocus);
-// refs.input.addEventListener('blur', onInputBlur);
-// refs.input.addEventListener('change', onInputChange);
-// refs.input.addEventListener('input', onInputChange);
-
-refs.input.addEventListener('input', onInputChange);
-refs.licenseCheckbox.addEventListener('change', onLicenseChange);
-
+// События, характерные для тега-input:
+// - 'focus' - событие получения фокуса области тега-input в окне браузера.
+// Вешаем "слушателя" на событие 'focus'
+refs.input.addEventListener('focus', onInputFocus);
+// Создаем колл-бек функцию для события 'focus'
 function onInputFocus() {
   console.log('Инпут получил фокус - событие focus');
-}
+}; // Наведи курсор на "инпут" в окне браузера и см. лог. 
 
+// - 'blur' - событие снятия фокуса с области тега-input в окне браузера.
+// Вешаем "слушателя" на событие 'blur'
+refs.input.addEventListener('blur', onInputBlur);
+// Создаем колл-бек функцию для события 'blur'
 function onInputBlur() {
   console.log('Инпут потерял фокус - событие blur');
-}
+}; // Убери курсор с "инпут" в окне браузера и см. лог. 
 
+// - 'change' - событие возникающее после ввода текста в "инпут" и обязательного снятия с него фокуса. Предназначено для отслеживания изменений в "радио-buttons" и "чекбоксах".
+refs.input.addEventListener('change', onInputChange);
+// Создаем колл-бек функцию для события 'change'
 function onInputChange(event) {
-  refs.nameLabel.textContent = event.currentTarget.value;
-}
+  console.log('"onInputChange" =>', event.currentTarget.value);
+}; // Введи текст в "инпут", в окне браузера, убери с "инпута" фокус, и см. лог.
 
-function onLicenseChange(event) {
+// - 'input' - основное событие для текстовых полей тегов-input, регистрируется браузером каждый раз, когда в поле тега-input добавляется/удаляется символ.
+refs.input.addEventListener('input', onInputChangeInput);
+// Создаем колл-бек функцию для события 'input'
+function onInputChangeInput(event) {
+  console.log('"onInputChangeInput" =>', event.currentTarget.value);
+}; // Введи в/удали из поля тега-input символ и см. лог.
+
+
+//!============================================================
+
+
+//! Пример реализации прикладной задачи:
+// I-я часть задачи - "Нам нужно, что-бы при вводе текста в "инпут" ('.js-input'), изменялся текст внутри тега-span ('.js-button > span'), расположенного внутри тега-batton".
+// II-я часть задачи - "Нам нужно, что-бы кнопка - тега-batton ('.js-button') становилась активной - доступной для нажатия, только тогда, когда на "чекбоксе" ('.js-license') проставлена галочка".
+
+// I-я часть задачи: 
+// - вешаем слушателя на текстовый "инпут" по событию "input"
+refs.input.addEventListener('input', onInputChangeEx);
+// - создаем "колл-бек" функцию для события "input"
+function onInputChangeEx(event) {
+  // Задаем значение тегу-span = введенному в текстовое поле "инута", набору символов
+  refs.nameLabel.textContent = event.currentTarget.value;
+};
+
+// II-я часть задачи: 
+// - вешаем слушателя на "чекбокс" по событию 'change'
+refs.licenseCheckbox.addEventListener('change', onLicenseChangeEx);
+// - создаем "колл-бек" функцию для события 'change'
+function onLicenseChangeEx(event) {
+  // Раскомментируй ниже описанный "console.log" и "покликай" на "чекбоксе" в окне браузера для понимания того, какое значение возвращает - "event.currentTarget.checked" при наличии/отсутствии галочки в "чекбоксе".
+  // console.log(event.currentTarget.checked);
+  
+  // Используя встроенное свойство тега-button - "disable", задаем кнопке состояние "выключено", когда в "чекбоксе" НЕТ галочки, "доступна", когда в "чекбоксе" стоит галочка 
   refs.btn.disabled = !event.currentTarget.checked;
-}
+  //! disabled -> "true" - когда в "чекбоксе" НЕТ галочки
+  //! disabled -> "false" - когда в "чекбоксе" TCNM галочка
+  
+  // Выводим в лог значение встроенного свойства тега-button - "disable" для маниторинга его состояния при клике на "чекбокс"
+  console.log('"refs.btn.disabled" =>', refs.btn.disabled);
+};
+
