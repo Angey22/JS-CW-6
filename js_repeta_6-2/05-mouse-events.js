@@ -6,6 +6,7 @@
  * - Допмат по координатам: https://nerdparadise.com/programming/javascriptmouseposition
  * - Хорошая задачка - https://learn.javascript.ru/task/move-ball-field
  */
+// Видео - 1:05:50...
 
 const boxRef = document.querySelector('.js-box');
 
