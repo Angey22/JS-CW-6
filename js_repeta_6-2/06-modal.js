@@ -7,17 +7,22 @@
  *
  * В CSS есть класс show-modal, который необходимо добавить на body при открытии модалки
  */
+//! Свойство "currentTarget" - ссылается на элемент, на котором "повешан" слушатель.
+//! Свойство "target" - ссылается на тот элемент, в пределах области которого произошло событие.
 
+// Создаем объект-ссылок для привязки существующих в HTML документе тегов
 const refs = {
   openModalBtn: document.querySelector('[data-action="open-modal"]'),
   closeModalBtn: document.querySelector('[data-action="close-modal"]'),
   backdrop: document.querySelector('.js-backdrop'),
 };
 
+// Вешаем слушателей событий
 refs.openModalBtn.addEventListener('click', onOpenModal);
 refs.closeModalBtn.addEventListener('click', onCloseModal);
 refs.backdrop.addEventListener('click', onBackdropClick);
 
+// Создаем набор "колл-бек" функций для соответствующих событий:
 function onOpenModal() {
   window.addEventListener('keydown', onEscKeyPress);
   document.body.classList.add('show-modal');
