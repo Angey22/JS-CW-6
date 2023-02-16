@@ -87,3 +87,22 @@ input {
 .indents {
   margin: 5px;
 }
+
+/* Стили для файла 'html_veb_6-2.html' */
+.text {
+  font-size: 40px;
+  cursor: pointer;
+}
+
+.conteiner-form {
+  min-height: 100vh;
+  display: flex;
+  align-items: start;
+  justify-content: left;
+}
+.form {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 32px;
+}
