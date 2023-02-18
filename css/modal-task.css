@@ -1,0 +1,102 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /* Position */
+  /* position: relative; */
+
+  /* Geometry */
+  /* height: 100%; */
+  padding-top: 50px;
+
+  /* Text */
+  font-family: sans-serif;
+}
+
+body.open {
+  overflow-y: hidden;
+}
+
+body.open > .modal-window,
+body.open > .overlay {
+  display: block;
+}
+
+.open-modal-btn {
+  /* Position */
+  display: block;
+
+  /* Geometry */
+  margin: 0 auto;
+  padding: 10px 15px;
+
+  /* Visual */
+
+  /* Text */
+  font-size: 50px;
+
+  /* Interactive */
+  cursor: pointer;
+}
+
+.theme {
+  /* Visual */
+  background-color: #000;
+  border: 3px solid lime;
+  border-radius: 15px;
+
+  /* Text */
+  color: lime;
+}
+
+.modal-window {
+  /* Position */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+
+  /* Visual */
+  display: none;
+
+  /* Geometry */
+  padding: 100px 90px;
+
+  /* Text */
+  font-size: 70px;
+  text-transform: uppercase;
+}
+
+.close-btn {
+  /* Position */
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  /* Text */
+  font-size: 25px;
+  color: lime;
+  text-decoration: underline;
+
+  /* Visual */
+  background-color: transperent;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.overlay {
+  /* Position */
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+
+  /* Visual */
+  display: none;
+  background-color: rgba(0, 0, 0, 0.5);
+}
