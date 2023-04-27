@@ -1,3 +1,5 @@
+//! Видео - 1:06:25...1:30:50
+
 /*
  * - Создание элементов
  * - Вставка узлов: appendChild(elem), insertBefore(elem, nextSibling), append(...elems), prepend(...elems)
@@ -93,12 +95,12 @@ console.log('***********************************************');
 // Вставляем созданный тег-изображение и тег-заголовок в структуру существующего HTML документа, с помощью метода "appendChild(elem)", используя для вставки - переменную-ссылку на тег <div> с CSS классом - "hero".
 const heroEL = document.querySelector('.hero');
 
-// 1-й способ вставки нескольких элементов
-// heroEL.appendChild(titleEl);
-// heroEL.appendChild(imageEl);
+// 1-й способ вставки нескольких элементов по отдельности
+// heroEL.appendChild(titleEl); //!!!
+// heroEL.appendChild(imageEl); //!!!
 
-// 2-й способ вставки нескольких элементов
-heroEL.append(titleEl, imageEl);
+// 2-й способ вставки нескольких элементов одновременно
+// heroEL.append(titleEl, imageEl); //!!!
 
 
 
@@ -115,7 +117,7 @@ const navItemEl = document.createElement('li');
 navItemEl.classList.add('site-nav__item');
 
 // Выводим в лог структуру созданного тега-пункта списка для проверки его свойств
-console.log(navItemEl);
+console.log('"navItemEl" =>', navItemEl);
 console.log('-----------------------------------------------');
 
 
@@ -130,12 +132,12 @@ navLinkEl.classList.add('site-nav__link');
 navLinkEl.href = '/profile';
 
 // Выводим в лог структуру созданного тега-ссылки для проверки её свойств.
-console.log(navLinkEl);
+console.log('"navLinkEl" =>', navLinkEl);
 console.log('-----------------------------------------------');
 
 
 // "Связываем" в единое целое созданный в памяти браузера тег-пункт списки (<li>) и ссылку (<a>), с помощью метода "appendChild()", вкладывая <a> в <li>.
-navItemEl.appendChild(navLinkEl);
+navItemEl.appendChild(navLinkEl); //!!!
 
 // Выводим в лог структуру созданного объединенного элемента для проверки её свойств.
 console.log(navItemEl);
@@ -162,3 +164,4 @@ const navEl = document.querySelector('.site-nav');
 // Вставляем созданный пункт перед последним существующим пунктом в списке, т.е. - сделаем наш пункт предпоследним
 // navEl.insertBefore(navItemEl, navEl.lastElementChild); // !!!
 //Раскомментируй и см. результат в окне баузера
+
