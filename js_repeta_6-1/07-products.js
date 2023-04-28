@@ -1,4 +1,5 @@
-// Видео - 1:47:30...2:07:50
+//! Видео - 1:47:30...2:07:50
+
 /*
  * Создаём карточку продукта
  * - В классе продукта может быть product--on-sale product--not-available
@@ -34,7 +35,7 @@ productEl.classList.add('product');
 console.log(productEl);
 console.log('-----------------------------------------------');
 
-// Создаем переменную "nameEl" и задаем ей в качестве значения тег-заголовок "h2", с указанным в шаблоне классом (product__name), и заданным в исходном объекте текстовым контентов (из свойства "name").
+// Создаем переменную "nameEl" и задаем ей в качестве значения тег-заголовок "h2", с указанным в шаблоне классом (product__name), и заданным в исходном объекте текстовым контентом (из свойства "name").
 const nameEl = document.createElement('h2');
 nameEl.classList.add('product__name');
 nameEl.textContent = singleProduct.name;
