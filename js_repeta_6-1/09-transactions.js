@@ -1,4 +1,4 @@
-// Видео - 2:21:10
+//! Видео - 2:21:10 ...2:33:06
 
 import transactionHistory from './data/transactions.js';
 
@@ -26,6 +26,7 @@ const transactionTableRowsMarkup = transactionHistory
   .map(makeTransactionTableRowMarkup)
   .join('');
 
-tableEl.insertAdjacentHTML('beforeend', transactionTableRowsMarkup);
+tableEl.insertAdjacentHTML('beforeend', transactionTableRowsMarkup); //!!!
+// Раскомментируй и смотри изменения в браузере
 
 console.log(transactionTableRowsMarkup);
