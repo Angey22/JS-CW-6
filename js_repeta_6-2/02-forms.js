@@ -1,4 +1,5 @@
-// Видео - 0:23:10...0:41:10
+//! Видео - 0:23:10...0:41:10
+
 /*
  * - Событие - 'submit'
  * - Действия браузера по умолчанию
@@ -77,4 +78,3 @@ function onFormSubmit(event) {
     console.log('onFormSubmit -> value', value);
   });
 };
-

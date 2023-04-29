@@ -1,4 +1,4 @@
-// Видео - 0:56:00...1:05:30
+//! Видео - 0:56:00...1:05:30
 
 /*
  * Типы событий: 'keypress', 'keydown', 'keyup'
@@ -26,7 +26,7 @@ function onKeydown(event) {
   console.log('"event.key" =>', event.key);
   console.log('---------------------------------------------');
   // Выводим в лог значение свойства "code", служебного объекта-события - "KeyboardEvent".
-  console.log('"event.key" =>', event.code);
+  console.log('"event.code" =>', event.code);
   console.log('---------------------------------------------');
 };
 
